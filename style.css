@@ -8,6 +8,11 @@ html {
   margin: 0;
   padding: 0;
 }
+:root {
+  --primary: rgba(64, 43, 255, 0.7);
+  --primary-text: #8989c8;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -47,7 +52,7 @@ input {
 }
 
 .form-container {
-  background: #222;
+  background: #333;
   height: 100%;
   width: 100%;
   display: flex;
@@ -59,8 +64,11 @@ input {
 
 .form-container form {
   width: 100%;
-  background-color: rgba(64, 43, 255, 0.7);
+  background-color: var(--primary);
   padding: 10px 25% 10px 50px;
+  -webkit-box-shadow: 0px 6px 14px 0px rgb(7, 7, 8);
+  -moz-box-shadow: 0px 6px 14px 0px rgb(7, 7, 8);
+  box-shadow: 0px 6px 14px 0px rgb(7, 7, 8);
 }
 
 .header {
@@ -97,4 +105,35 @@ h2 {
 
 .input-wrapper input {
   padding: 5px;
+  min-width: 200px;
+}
+
+.input-wrapper input:focus-visible {
+  outline: none;
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 50px;
+  gap: 15px;
+}
+
+.form-footer button {
+  width: 200px;
+  padding: 10px;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  font-size: 1rem;
+  margin-top: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.login a {
+  color: var(--primary-text);
+  font-weight: bold;
+  text-decoration: none;
 }
