@@ -16,6 +16,11 @@ html {
 :root {
   --primary: rgba(64, 43, 255, 1);
   --primary-text: #8989c8;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --selected: #ffc107;
+  --danger: #dc3545;
 }
 
 body {
@@ -154,6 +159,17 @@ h2 {
 .input-wrapper input {
   padding: 5px;
   min-width: 200px;
+  border: 2px transparent solid;
+}
+
+.input-wrapper:focus-within input {
+  transition: border 0.2s;
+  border-color: var(--selected);
+}
+
+.input-wrapper:focus-within label {
+  transition: border 0.2s;
+  color: var(--selected);
 }
 
 .input-wrapper input:focus-visible {
