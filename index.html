@@ -10,7 +10,9 @@
   <body>
     <div class="container">
       <div class="logo-container">
-        <img src="./img/luca-bravo-a_hPPrncGlQ-unsplash.jpg" alt="Night" />
+        <div class="image-container">
+          <img src="./img/luca-bravo-a_hPPrncGlQ-unsplash.jpg" alt="Night" />
+        </div>
         <div class="logo">
           <img src="./img/shield.svg" class="logo-image" alt="Shield" /><span
             class="logo-text"
@@ -33,8 +35,8 @@
       <div class="form-container">
         <section class="form-info">
           This is not a real online service! You know you need something like
-          this in your life to help you realize your deepest dreams. <br />
-          Sign up <em>now</em> to get started.<br /><br />
+          this in your life to help you realize your deepest dreams. Sign up
+          <em>now</em> to get started.<br /><br />
           You <em>know</em> you want to.
         </section>
 
@@ -61,6 +63,17 @@
                   required
                 />
               </div>
+              <meter
+                id="strength"
+                min="0"
+                max="4"
+                low="3"
+                high="4"
+                optimum="4"
+                value="0"
+              >
+                0/4
+              </meter>
             </div>
             <div class="input-column">
               <div class="input-wrapper">
@@ -91,5 +104,6 @@
         </div>
       </div>
     </div>
+    <script src="./main.js"></script>
   </body>
 </html>
