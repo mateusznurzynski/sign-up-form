@@ -23,6 +23,7 @@ body {
   background-color: gray;
   height: 100%;
   width: 30%;
+  position: relative;
 }
 
 .form-container {
@@ -31,6 +32,18 @@ body {
   width: 70%;
 }
 
-img {
+.logo-container img {
   height: 100vh;
+}
+
+.logo-container small {
+  position: absolute;
+  bottom: 0;
+  color: rgb(180, 180, 180);
+  width: 100%;
+  left: 50%;
+}
+
+.logo-container small a {
+  color: white;
 }
