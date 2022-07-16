@@ -14,7 +14,7 @@ html {
   padding: 0;
 }
 :root {
-  --primary: rgba(64, 43, 255, 0.7);
+  --primary: rgba(64, 43, 255, 1);
   --primary-text: #8989c8;
 }
 
@@ -82,7 +82,21 @@ input {
 }
 
 .form-container {
-  background: #333;
+  background-image: linear-gradient(
+    45deg,
+    #333333 16.67%,
+    #4a4a4a 16.67%,
+    #4a4a4a 33.33%,
+    #4a4a4a 33.33%,
+    #4a4a4a 50%,
+    #333333 50%,
+    #333333 66.67%,
+    #4a4a4a 66.67%,
+    #4a4a4a 83.33%,
+    #4a4a4a 83.33%,
+    #4a4a4a 100%
+  );
+  background-size: 84.85px 84.85px;
   height: 100%;
   width: 100%;
   display: flex;
@@ -95,6 +109,7 @@ input {
 .form-container form {
   width: 100%;
   background-color: var(--primary);
+  opacity: 0.9;
   padding: 10px 25% 10px 50px;
   -webkit-box-shadow: 0px 6px 14px 0px rgb(7, 7, 8);
   -moz-box-shadow: 0px 6px 14px 0px rgb(7, 7, 8);
