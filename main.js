@@ -19,4 +19,27 @@ function checkPassword(e) {
   }
 }
 
-function checkPasswordStrength(e) {}
+function checkPasswordStrength(e) {
+  if (e.target.value.length < 0) {
+    return;
+  }
+  let strength = 0;
+  const normal = /[a-z]/;
+  const capital = /[A-Z]/;
+  const specialCharacter = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+  const number = /[0-9]/;
+  const allPatterns = [
+    { pattern: normal, strength: 10 },
+    { pattern: capital, strength: 10 },
+    { pattern: specialCharacter, strength: 5 },
+    { pattern: number, strength: 5 },
+  ];
+
+  allPatterns.forEach((pattern) => {
+    if (pattern.pattern.test(e.target.value)) {
+      strength += pattern.strength;
+    }
+  });
+
+  console.log(strength);
+}
