@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Norse-Bold;
+  src: url(./fonts/Norse-Bold.otf);
+}
+
 html {
   box-sizing: border-box;
 }
@@ -34,7 +39,7 @@ input {
   position: relative;
 }
 
-.logo-container img {
+.logo-container > img {
   height: 100vh;
 }
 
@@ -49,6 +54,31 @@ input {
 
 .logo-container small a {
   color: white;
+}
+
+.logo {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+}
+
+.logo-text {
+  font-family: Norse-Bold;
+  font-size: 4rem;
+}
+
+.logo-image {
+  height: 100%;
+  filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(200deg)
+    brightness(108%) contrast(100%);
 }
 
 .form-container {
@@ -75,6 +105,7 @@ input {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 10px 25% 10px 50px;
+  margin-bottom: 20px;
 }
 
 h2 {
