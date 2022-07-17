@@ -1,44 +1,11 @@
-const passwordInput = document.querySelector('#password');
-const confirmPasswordInput = document.querySelector('#confirm-password');
-const emailInput = document.querySelector('#email');
 const meter = document.querySelector('meter');
-const simpleInputs = document.querySelectorAll('.simple');
+const inputs = document.querySelectorAll('.input-wrapper input');
+const passwordInput = document.querySelector('#password');
 
-simpleInputs.forEach((input) => {
-  input.addEventListener('blur', validateSimpleInput);
+inputs.forEach((input) => {
+  input.addEventListener('blur', validateInput);
 });
-passwordInput.addEventListener('blur', checkPassword);
 passwordInput.addEventListener('input', checkPasswordStrength);
-confirmPasswordInput.addEventListener('blur', checkPassword);
-emailInput.addEventListener('blur', checkEmail);
-
-function checkEmail(e) {
-  e.target.parentNode.classList.remove('validated');
-  e.target.parentNode.classList.remove('incorrect-email');
-  if (e.target.value === '') {
-    return;
-  }
-  const valid = e.target.checkValidity();
-  if (valid) {
-    e.target.parentNode.classList.add('validated');
-  } else {
-    e.target.parentNode.classList.add('incorrect-email');
-  }
-}
-
-function checkPassword(e) {
-  confirmPasswordInput.parentNode.classList.remove('validated');
-  confirmPasswordInput.parentNode.classList.remove('no-match');
-  if (confirmPasswordInput.value === '') {
-    return;
-  }
-
-  if (confirmPasswordInput.value === passwordInput.value) {
-    confirmPasswordInput.parentNode.classList.add('validated');
-  } else {
-    confirmPasswordInput.parentNode.classList.add('no-match');
-  }
-}
 
 function checkPasswordStrength(e) {
   if (e.target.value.length < 0) {
@@ -66,10 +33,27 @@ function checkPasswordStrength(e) {
   meter.value = strength;
 }
 
-function validateSimpleInput(e) {
+function validateInput(e) {
+  let valid;
+  const errorMessage = e.target.getAttribute('data-error-message');
   e.target.parentNode.classList.remove('validated');
-  const valid = e.target.checkValidity();
+  if (errorMessage) {
+    e.target.parentNode.classList.remove(errorMessage);
+  }
+  if (e.target.value === '') {
+    return;
+  }
+
+  if (errorMessage === 'no-match') {
+    //Password confirmation
+    valid = e.target.value === passwordInput.value ? true : false;
+  } else {
+    valid = e.target.checkValidity();
+  }
+
   if (valid) {
     e.target.parentNode.classList.add('validated');
+  } else if (errorMessage) {
+    e.target.parentNode.classList.add(errorMessage);
   }
 }

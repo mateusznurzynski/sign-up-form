@@ -211,6 +211,7 @@ h2 {
 
 .password-help-tooltip {
   background-color: #222;
+  color: white;
   letter-spacing: normal;
   justify-content: center;
   align-items: center;
@@ -260,6 +261,14 @@ h2 {
   position: absolute;
   top: 46px;
   letter-spacing: normal;
+}
+
+.password-unsafe {
+  color: var(--danger);
+  position: relative;
+}
+.password-unsafe > input {
+  border-color: var(--danger);
 }
 
 .validated {
