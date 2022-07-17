@@ -53,7 +53,7 @@
                 <label for="email">E-MAIL</label>
                 <input type="email" name="email" id="email" required />
               </div>
-              <div class="input-wrapper">
+              <div class="input-wrapper relative">
                 <label for="password">PASSWORD</label>
                 <input
                   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
@@ -62,6 +62,19 @@
                   id="password"
                   required
                 />
+                <div class="password-help absolute">
+                  <img
+                    class="help-image"
+                    src="./img/help_FILL0_wght400_GRAD0_opsz48.svg"
+                    alt="Password Help"
+                  />
+                </div>
+                <div class="password-help-tooltip absolute">
+                  Your password must have:<br />- 1 lowercase character<br />- 1
+                  uppercase character<br />
+                  - 1 number or special character<br />
+                  - at least 8 characters
+                </div>
               </div>
               <meter
                 id="strength"

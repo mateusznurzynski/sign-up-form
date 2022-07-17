@@ -44,5 +44,4 @@ function checkPasswordStrength(e) {
     }
   });
   meter.value = strength;
-  console.log(strength);
 }

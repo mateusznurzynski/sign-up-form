@@ -32,6 +32,14 @@ input {
   font-size: max(1rem, 16px);
 }
 
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
 .container {
   width: 100%;
   height: 100vh;
@@ -182,6 +190,38 @@ h2 {
 
 .input-wrapper input:focus-visible {
   outline: none;
+}
+
+.password-help {
+  bottom: 0;
+  right: -36px;
+  width: 32px;
+  height: 32px;
+}
+
+.password-help-tooltip {
+  background-color: #222;
+  letter-spacing: normal;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  height: 100px;
+  width: 200px;
+  bottom: -118px;
+  right: -120px;
+  padding: 15px;
+  text-align: left;
+  display: none;
+}
+.password-help:hover + .password-help-tooltip {
+  display: flex;
+}
+
+.help-image {
+  width: 100%;
+  height: 100%;
+  filter: invert(99%) sepia(99%) saturate(0%) hue-rotate(200deg)
+    brightness(108%) contrast(100%);
 }
 
 .error {
