@@ -1,5 +1,6 @@
 const passwordInput = document.querySelector('#password');
 const confirmPasswordInput = document.querySelector('#confirm-password');
+const meter = document.querySelector('meter');
 
 passwordInput.addEventListener('blur', checkPassword);
 passwordInput.addEventListener('input', checkPasswordStrength);
@@ -28,11 +29,13 @@ function checkPasswordStrength(e) {
   const capital = /[A-Z]/;
   const specialCharacter = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
   const number = /[0-9]/;
+  const characters = /(?=^.{8,}$)/;
   const allPatterns = [
     { pattern: normal, strength: 10 },
     { pattern: capital, strength: 10 },
     { pattern: specialCharacter, strength: 5 },
     { pattern: number, strength: 5 },
+    { pattern: characters, strength: 10 },
   ];
 
   allPatterns.forEach((pattern) => {
@@ -40,6 +43,6 @@ function checkPasswordStrength(e) {
       strength += pattern.strength;
     }
   });
-
+  meter.value = strength;
   console.log(strength);
 }
