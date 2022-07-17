@@ -245,6 +245,21 @@ h2 {
   content: 'Passwords do not match';
   position: absolute;
   top: 46px;
+  letter-spacing: normal;
+}
+
+.incorrect-email {
+  color: var(--danger);
+  position: relative;
+}
+.incorrect-email > input {
+  border-color: var(--danger);
+}
+.incorrect-email::after {
+  content: 'Incorrect e-mail';
+  position: absolute;
+  top: 46px;
+  letter-spacing: normal;
 }
 
 .validated {

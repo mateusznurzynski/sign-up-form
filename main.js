@@ -2,15 +2,19 @@ const passwordInput = document.querySelector('#password');
 const confirmPasswordInput = document.querySelector('#confirm-password');
 const emailInput = document.querySelector('#email');
 const meter = document.querySelector('meter');
+const simpleInputs = document.querySelectorAll('.simple');
 
+simpleInputs.forEach((input) => {
+  input.addEventListener('blur', validateSimpleInput);
+});
 passwordInput.addEventListener('blur', checkPassword);
 passwordInput.addEventListener('input', checkPasswordStrength);
 confirmPasswordInput.addEventListener('blur', checkPassword);
 emailInput.addEventListener('blur', checkEmail);
 
 function checkEmail(e) {
-  e.target.classList.remove('validated');
-  e.target.classList.remove('incorrect-email');
+  e.target.parentNode.classList.remove('validated');
+  e.target.parentNode.classList.remove('incorrect-email');
   if (e.target.value === '') {
     return;
   }
@@ -60,4 +64,12 @@ function checkPasswordStrength(e) {
     }
   });
   meter.value = strength;
+}
+
+function validateSimpleInput(e) {
+  e.target.parentNode.classList.remove('validated');
+  const valid = e.target.checkValidity();
+  if (valid) {
+    e.target.parentNode.classList.add('validated');
+  }
 }
