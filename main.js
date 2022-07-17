@@ -1,11 +1,14 @@
 const meter = document.querySelector('meter');
 const inputs = document.querySelectorAll('.input-wrapper input');
 const passwordInput = document.querySelector('#password');
+const confirmPasswordInput = document.querySelector('#confirm-password');
+const form = document.querySelector('#register-form');
 
 inputs.forEach((input) => {
   input.addEventListener('blur', validateInput);
 });
 passwordInput.addEventListener('input', checkPasswordStrength);
+form.addEventListener('submit', submitForm);
 
 function checkPasswordStrength(e) {
   if (e.target.value.length < 0) {
@@ -55,5 +58,11 @@ function validateInput(e) {
     e.target.parentNode.classList.add('validated');
   } else if (errorMessage) {
     e.target.parentNode.classList.add(errorMessage);
+  }
+}
+
+function submitForm(e) {
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    e.preventDefault();
   }
 }
