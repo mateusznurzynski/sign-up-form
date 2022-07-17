@@ -1,14 +1,30 @@
 const passwordInput = document.querySelector('#password');
 const confirmPasswordInput = document.querySelector('#confirm-password');
+const emailInput = document.querySelector('#email');
 const meter = document.querySelector('meter');
 
 passwordInput.addEventListener('blur', checkPassword);
 passwordInput.addEventListener('input', checkPasswordStrength);
 confirmPasswordInput.addEventListener('blur', checkPassword);
+emailInput.addEventListener('blur', checkEmail);
+
+function checkEmail(e) {
+  e.target.classList.remove('validated');
+  e.target.classList.remove('incorrect-email');
+  if (e.target.value === '') {
+    return;
+  }
+  const valid = e.target.checkValidity();
+  if (valid) {
+    e.target.parentNode.classList.add('validated');
+  } else {
+    e.target.parentNode.classList.add('incorrect-email');
+  }
+}
 
 function checkPassword(e) {
   confirmPasswordInput.parentNode.classList.remove('validated');
-  confirmPasswordInput.parentNode.classList.remove('error');
+  confirmPasswordInput.parentNode.classList.remove('no-match');
   if (confirmPasswordInput.value === '') {
     return;
   }
@@ -16,7 +32,7 @@ function checkPassword(e) {
   if (confirmPasswordInput.value === passwordInput.value) {
     confirmPasswordInput.parentNode.classList.add('validated');
   } else {
-    confirmPasswordInput.parentNode.classList.add('error');
+    confirmPasswordInput.parentNode.classList.add('no-match');
   }
 }
 

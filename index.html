@@ -47,7 +47,13 @@
             <div class="input-column">
               <div class="input-wrapper">
                 <label for="first-name">FIRST NAME</label>
-                <input type="text" name="first-name" id="first-name" required />
+                <input
+                  class="simple"
+                  type="text"
+                  name="first-name"
+                  id="first-name"
+                  required
+                />
               </div>
               <div class="input-wrapper">
                 <label for="email">E-MAIL</label>
@@ -55,25 +61,28 @@
               </div>
               <div class="input-wrapper relative">
                 <label for="password">PASSWORD</label>
-                <input
-                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                  type="password"
-                  name="password"
-                  id="password"
-                  required
-                />
-                <div class="password-help absolute">
-                  <img
-                    class="help-image"
-                    src="./img/help_FILL0_wght400_GRAD0_opsz48.svg"
-                    alt="Password Help"
+                <div class="flex relative">
+                  <input
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    type="password"
+                    name="password"
+                    id="password"
+                    required
                   />
-                </div>
-                <div class="password-help-tooltip absolute">
-                  Your password must have:<br />- 1 lowercase character<br />- 1
-                  uppercase character<br />
-                  - 1 number or special character<br />
-                  - at least 8 characters
+
+                  <div class="password-help absolute">
+                    <img
+                      class="help-image"
+                      src="./img/help_FILL0_wght400_GRAD0_opsz48.svg"
+                      alt="Password Help"
+                    />
+                  </div>
+                  <div class="password-help-tooltip absolute">
+                    Your password must have:<br />- 1 lowercase character<br />-
+                    1 uppercase character<br />
+                    - 1 number or special character<br />
+                    - at least 8 characters
+                  </div>
                 </div>
               </div>
               <meter
@@ -91,11 +100,23 @@
             <div class="input-column">
               <div class="input-wrapper">
                 <label for="last-name">LAST NAME</label>
-                <input type="text" name="last-name" id="last-name" required />
+                <input
+                  class="simple"
+                  type="text"
+                  name="last-name"
+                  id="last-name"
+                  required
+                />
               </div>
               <div class="input-wrapper">
                 <label for="phone">PHONE NUMBER</label>
-                <input type="tel" name="phone" id="phone" required />
+                <input
+                  class="simple"
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  required
+                />
               </div>
               <div class="input-wrapper">
                 <label for="confirm-password">CONFIRM PASSWORD</label>
